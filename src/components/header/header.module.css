@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,900&display=swap');
+
+.header {
+    grid-area: header;
+    padding: 15px;
+    font-family: system-ui;
+    font-size: min(120%, 5vmin);
+}
+
+.styled-text {
+    background: linear-gradient(
+            to right,
+            hsl(98 100% 62%),
+            hsl(204 100% 59%)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: system-ui;
+}
+
+.styled-label {
+    line-height: 1.1;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+
+
+
+/*p {*/
+/*    font-family: "Dank Mono", ui-monospace, monospace;*/
+/*}*/

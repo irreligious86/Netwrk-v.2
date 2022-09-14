@@ -1,0 +1,69 @@
+.post {
+    margin: 0 -14px 18px;
+    padding: 0 10px;
+    background-color: rgba(153, 205, 50, 0.1);
+}
+
+.post-title {
+    margin: 5px auto;
+}
+
+.post-container {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 1fr 15px 15px;
+    grid-template-areas:
+    "author message"
+    "author message"
+    "likes date"
+;
+    /* border: 1px solid greenyellow; */
+}
+
+.post-author {
+    grid-area: author;
+    /* border: 1px solid greenyellow; */
+}
+
+.post-author-ava {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border: 3px solid rgb(49, 239, 49);
+    border-radius: 10%;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8II5A8OzCGjpl59GUZ96P8wGhjwAhgqhQ5Q&usqp=CAU");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* border: 1px solid greenyellow; */
+}
+
+.post-author-name {
+    /* border: 1px solid greenyellow; */
+}
+
+.post-author-rating {
+    /* border: 1px solid greenyellow; */
+}
+
+.post-content {
+    /* border: 1px solid greenyellow; */
+}
+
+.post-message {
+    grid-area: message;
+    margin: 5px;
+    /* border: 1px solid greenyellow; */
+}
+
+.post-likes {
+    margin: 5px;
+    grid-area: likes;
+    /* border: 1px solid greenyellow; */
+}
+
+.post-date {
+    grid-area: date;
+    margin: 5px;
+    /* border: 1px solid greenyellow; */
+}

@@ -1,0 +1,12 @@
+.dialogs {
+
+}
+
+.dialogs-title {
+    margin: 0;
+}
+
+.dialogs-inner {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}

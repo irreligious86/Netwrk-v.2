@@ -1,0 +1,9 @@
+.dialog-item {
+    text-decoration: none;
+    background-color: rgba(0, 255, 255, 0.17);
+}
+
+.active {
+    color: green;
+    font-size: 20px;
+}
