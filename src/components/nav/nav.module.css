@@ -1,0 +1,36 @@
+.nav {
+    grid-area: nav;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-list-item {
+    height: 35px;
+}
+
+.nav-link {
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    line-height: 35px;
+    color: rgb(12, 108, 66);
+}
+
+.nav-link-active {
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    line-height: 35px;
+    color: gold;
+}
+
+.nav-link:hover {
+    font-size: 25px;
+    color: rgb(49, 83, 101);
+    text-shadow: 0 0 2px rgb(44, 160, 172);
+}
+
+.nav-link:visited {
+    /*color: none;*/
+}
