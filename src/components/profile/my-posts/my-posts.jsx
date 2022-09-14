@@ -35,7 +35,8 @@ const MyPosts = (props) => {
         />
             </div>
             <div className={classes["input-controls"]}>
-                <button type='button' onClick={ () => addPost() }>Add post</button>
+                {/*<button type='button' onClick={ () => addPost() }>Add post</button>*/}
+                <button type='button' onClick={ () => {alert('Add post')} }>Add post</button>
                 <button type='button' onClick={ () => {alert('Clean')} }>Clean</button>
             </div>
             {postsElements}
