@@ -4,6 +4,8 @@ import Post from './post/post';
 
 const MyPosts = (props) => {
 
+    let newPostElement = React.createRef();
+
     const postsElements = props.postsData
         .map( post => <Post message={post.message} likesCount={post.likesCount} /> );
 
@@ -14,11 +16,10 @@ const MyPosts = (props) => {
     }
 
     const onPostChange = () => {
+        console.log(newPostElement.current.value);
         const text = newPostElement.current.value;
         props.updateNewPostText(text);
     }
-
-    const newPostElement = React.createRef();
 
     return (
         <div className="my-posts">
@@ -30,7 +31,7 @@ const MyPosts = (props) => {
             cols="60"
             rows="3"
             ref={newPostElement}
-            value={props.newPostText}
+            placeholder={props.newPostText}
             onChange={onPostChange}
         />
             </div>
