@@ -7,7 +7,7 @@ const MyPosts = (props) => {
     let newPostElement = React.createRef();
 
     const postsElements = props.postsData
-        .map( post => <Post message={post.message} likesCount={post.likesCount} /> );
+        .map(post => <Post message={post.message} likesCount={post.likesCount}/>);
 
     const addPost = () => {
         const text = newPostElement.current.value;
@@ -24,8 +24,9 @@ const MyPosts = (props) => {
     return (
         <div className="my-posts">
             <h5 className={classes['my-posts-title']}>My posts</h5>
-            <div className={classes["input-text"]}>
+            <div className={classes["input-new-post"]}>
         <textarea
+            className={classes['input-textarea']}
             name=""
             id=""
             cols="60"
@@ -34,11 +35,14 @@ const MyPosts = (props) => {
             placeholder={props.newPostText}
             onChange={onPostChange}
         />
-            </div>
-            <div className={classes["input-controls"]}>
-                {/*<button type='button' onClick={ () => addPost() }>Add post</button>*/}
-                <button type='button' onClick={ () => {alert('Add post')} }>Add post</button>
-                <button type='button' onClick={ () => {alert('Clean')} }>Clean</button>
+                <div className={classes["input-controls"]}>
+                    <button className={classes["input-controls-btn"]} type='button' onClick={() => addPost()}>Add post
+                    </button>
+                    <button className={classes["input-controls-btn"]} type='button' onClick={() => {
+                        alert('Clean')
+                    }}>Clean
+                    </button>
+                </div>
             </div>
             {postsElements}
         </div>

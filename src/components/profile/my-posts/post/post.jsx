@@ -10,7 +10,6 @@ const Post = (props) => {
                     <p className={classes['post-author-name']}>Author name</p>
                     <p className={classes['post-author-rating']}>Author rating</p>
                 </div>
-                {/*<div className={classes['post-content']}>*/}
                 <h5 className={classes['post-title']}>Post title</h5>
                 <p className={classes['post-message']}>{props.message}</p>
                 <div className={classes['post-controls']}>
@@ -21,7 +20,6 @@ const Post = (props) => {
                 </div>
                 <span className={classes['post-likes']}>Like: {props.likesCount}</span>
                 <span className={classes['post-date']}>22-04-2020</span>
-                {/*</div>*/}
             </div>
         </div>
     )
