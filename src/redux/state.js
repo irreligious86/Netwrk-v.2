@@ -1,3 +1,6 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+
 const store = {
     _state: {
         profilePage: {
@@ -52,7 +55,7 @@ const store = {
     subscribe(observer) {this._callSubscriber = observer},
     dispatch(action) {
         switch (action.type) {
-            case "ADD-POST":
+            case ADD_POST:
                 const newPost = {
                     id: 412485,
                     message: this._state.profilePage.newPostText,
@@ -62,12 +65,25 @@ const store = {
                 this._state.profilePage.newPostText = '';
                 this._callSubscriber(this._state);
                 break;
-            case "UPDATE-NEW-POST-TEXT":
+            case UPDATE_NEW_POST_TEXT:
                 this._state.profilePage.newPostText = action.newText;
                 break;
         }
     },
 };
+
+export const addPostActionCreator = () => {
+    return {
+        type: ADD_POST,
+    }
+}
+
+export const updateNewPostTextActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_POST_TEXT,
+        newText: text,
+    }
+}
 
 export default store;
 window.store = store;
