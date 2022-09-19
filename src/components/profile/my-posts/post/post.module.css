@@ -1,69 +1,94 @@
 .post {
-    margin: 0 -14px 18px;
+    margin: 0 -14px 10px;
     padding: 0 10px;
     background-color: rgba(153, 205, 50, 0.1);
 }
 
-.post-title {
-    margin: 5px auto;
-}
-
 .post-container {
     display: grid;
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: 1fr 15px 15px;
+    grid-template-columns: 80px 1fr 100px 100px;
+    grid-template-rows: 20px 1fr 25px;
     grid-template-areas:
-    "author message"
-    "author message"
-    "likes date"
+    "author title title ."
+    "author message message message"
+    "author controls likes date"
 ;
-    /* border: 1px solid greenyellow; */
+    padding: 8px 0;
+     /*border: 1px solid greenyellow;*/
 }
 
 .post-author {
     grid-area: author;
-    /* border: 1px solid greenyellow; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+     /*border: 1px solid greenyellow;*/
 }
 
 .post-author-ava {
     width: 50px;
     height: 50px;
-    margin: 0 auto;
-    border: 3px solid rgb(49, 239, 49);
+    margin: 0 auto 8px;
+    border: 3px solid rgba(145, 208, 145, 0.38);
     border-radius: 10%;
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8II5A8OzCGjpl59GUZ96P8wGhjwAhgqhQ5Q&usqp=CAU");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* border: 1px solid greenyellow; */
 }
 
-.post-author-name {
-    /* border: 1px solid greenyellow; */
+.post-author-name, .post-author-rating {
+    margin: 0 auto 5px;
+    font-size: .7rem;
+     /*border: 1px solid greenyellow;*/
 }
 
-.post-author-rating {
-    /* border: 1px solid greenyellow; */
-}
-
-.post-content {
-    /* border: 1px solid greenyellow; */
+.post-title {
+    grid-area: title;
+    margin: 0 0 5px;
+    display: inline-block;
 }
 
 .post-message {
     grid-area: message;
-    margin: 5px;
-    /* border: 1px solid greenyellow; */
+    margin: 0 0 5px;
+    padding: 3px 8px;
+    text-align: left;
+    /*border: 1px solid greenyellow;*/
+}
+
+.post-controls {
+    grid-area: controls;
+    display: flex;
+    gap: 10px;
+}
+
+.post-controls-btn {
+    padding: 2px 8px;
+    margin: 0 0 0 10px;
+    background-color: rgba(45, 215, 211, 0.25);
+    border-radius: 3px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.post-controls-btn:hover {
+    border: 1px solid rgba(64, 255, 0, 0.48);
+    color: rgba(64, 255, 0, 0.8);
+    background-color: rgba(29, 87, 85, 0.37);
 }
 
 .post-likes {
-    margin: 5px;
+    display: inline-block;
+    margin: 0 ;
     grid-area: likes;
-    /* border: 1px solid greenyellow; */
+     /*border: 1px solid greenyellow;*/
 }
 
 .post-date {
+    display: inline-block;
     grid-area: date;
-    margin: 5px;
-    /* border: 1px solid greenyellow; */
+    margin: 0 ;
+     /*border: 1px solid greenyellow;*/
 }

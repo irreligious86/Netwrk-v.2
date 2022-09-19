@@ -5,3 +5,33 @@
 .my-posts-title {
 
 }
+
+.input-new-post {
+
+}
+
+.input-textarea {
+    padding: 3px 8px;
+background-color: rgba(88, 98, 78, 0.3);
+    color: aqua;
+}
+
+.input-controls {
+    margin: 0 0 15px;
+}
+
+.input-controls-btn {
+    padding: 2px 8px;
+    margin: 0 0 0 10px;
+    background-color: rgba(45, 215, 211, 0.25);
+    border-radius: 3px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.input-controls-btn:hover {
+    border: 1px solid rgba(64, 255, 0, 0.48);
+    color: rgba(64, 255, 0, 0.8);
+    background-color: rgba(29, 87, 85, 0.37);
+}

@@ -8,6 +8,7 @@
 }
 
 .styled-text {
+    margin: 0;
     background: linear-gradient(
             to right,
             hsl(98 100% 62%),

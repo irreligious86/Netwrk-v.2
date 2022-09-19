@@ -4,41 +4,50 @@ import Post from './post/post';
 
 const MyPosts = (props) => {
 
-    // const postsElements = props.postsData
-    //     .map( post => <Post message={post.message} likesCount={post.likesCount} /> );
-    //
-    // const addPost = () => {
-    //     const text = newPostElement.current.value;
-    //     props.addPost(text);
-    //     props.updateNewPostText('');
-    // }
-    //
-    // const onPostChange = () => {
-    //     const text = newPostElement.current.value;
-    //     props.updateNewPostText(text);
-    // }
-    //
-    // const newPostElement = React.createRef();
+    const newPostElement = React.createRef();
+
+    const postsElements = props.postsData
+        .map(post => <Post message={post.message} likesCount={post.likesCount}/>);
+
+    const addPost = () => {
+        const text = newPostElement.current.value;
+        props.addPost(text);
+    }
+
+    const onPostChange = () => {
+        const text = newPostElement.current.value;
+        props.updateNewPostText(text);
+    }
 
     return (
         <div className="my-posts">
             <h5 className={classes['my-posts-title']}>My posts</h5>
-        {/*    <div className={classes["input-text"]}>*/}
-        {/*<textarea*/}
-        {/*    name=""*/}
-        {/*    id=""*/}
-        {/*    cols="60"*/}
-        {/*    rows="3"*/}
-        {/*    ref={newPostElement}*/}
-        {/*    value={props.newPostText}*/}
-        {/*    onChange={onPostChange}*/}
-        {/*/>*/}
-        {/*    </div>*/}
-        {/*    <div className={classes["input-controls"]}>*/}
-        {/*        <button type='button' onClick={ () => addPost() }>Add post</button>*/}
-        {/*        <button type='button' onClick={ () => {alert('Clean')} }>Clean</button>*/}
-        {/*    </div>*/}
-        {/*    {postsElements}*/}
+            <div className={classes["input-new-post"]}>
+        <textarea
+            className={classes['input-textarea']}
+            name=""
+            id=""
+            cols="60"
+            rows="3"
+            ref={newPostElement}
+            placeholder={props.newPostText}
+            // value={props.newPostText}
+            onChange={onPostChange}
+        />
+                <div className={classes["input-controls"]}>
+                    <button
+                        className={classes["input-controls-btn"]}
+                        type='button'
+                        onClick={() => addPost()}
+                    >Add post</button>
+                    <button
+                        className={classes["input-controls-btn"]}
+                        type='button'
+                        onClick={() => newPostElement.current.value = ''}
+                    >Clean</button>
+                </div>
+            </div>
+            {postsElements}
         </div>
     )
 }
