@@ -1,13 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 import './index.css';
-import { addPost, updateNewPostText } from './redux/state';
-import App from './App';
+import state, {subscribe} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
-// import { subscribe } from './redux/state';
-import state from './redux/state.js';
+import App from "./App";
+import {addPost, updateNewPostText} from "./redux/state";
 
-const rerenderEntireTree = () => {
+export let rerenderEntireTree = () => {
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(
         <BrowserRouter>
@@ -20,6 +19,6 @@ const rerenderEntireTree = () => {
     );
 };
 
-rerenderEntireTree();
+rerenderEntireTree(state);
 
-// subscribe(rerenderEntireTree);
+subscribe(rerenderEntireTree);

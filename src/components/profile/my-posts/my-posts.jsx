@@ -4,7 +4,7 @@ import Post from './post/post';
 
 const MyPosts = (props) => {
 
-    let newPostElement = React.createRef();
+    const newPostElement = React.createRef();
 
     const postsElements = props.postsData
         .map(post => <Post message={post.message} likesCount={post.likesCount}/>);
@@ -12,12 +12,9 @@ const MyPosts = (props) => {
     const addPost = () => {
         const text = newPostElement.current.value;
         props.addPost(text);
-        props.updateNewPostText('');
-        newPostElement.current.value = '';
     }
 
     const onPostChange = () => {
-        console.log(newPostElement.current.value);
         const text = newPostElement.current.value;
         props.updateNewPostText(text);
     }
@@ -34,6 +31,7 @@ const MyPosts = (props) => {
             rows="3"
             ref={newPostElement}
             placeholder={props.newPostText}
+            // value={props.newPostText}
             onChange={onPostChange}
         />
                 <div className={classes["input-controls"]}>
