@@ -1,12 +1,7 @@
 
-
-
-let rerenderEntireTree = () => {
-    console.log('State was changed');
-}
+let rerenderEntireTree = () => {};
 
 const state = {
-
     profilePage: {
         postsData: [
             {id: 1,
@@ -19,15 +14,19 @@ const state = {
                 message: "I'll wait upon your honour. — from Measure for Measure",
                 likesCount: 6},
             {id: 4,
-                message: "Ere I let fall the windows of mine eyes — from Richard III",
+                message: "Ere I let fall the windows of mine eyes — from Richard III" +
+                    "Ere I let fall the windows of mine eyes — from Richard III" +
+                    "Ere I let fall the windows of mine eyes — from Richard III" +
+                    "Ere I let fall the windows of mine eyes — from Richard III" +
+                    "Ere I let fall the windows of mine eyes — from Richard III" +
+                    "Ere I let fall the windows of mine eyes — from Richard III",
                 likesCount: 4},
             {id: 5,
                 message: "All houses in the suburbs of Vienna must be plucked down. — from Measure for Measure",
                 likesCount: 1},
         ],
-        newPostText: 'New post text'
+        newPostText: 'New post text',
     },
-
     dialogsPage: {
         messagesData: [
             {id: 1, message: "O you hard hearts, you cruel men of Rome... — from Julius Caesar"},
@@ -49,26 +48,23 @@ const state = {
             {id: 8, name: "Michael"}
         ],
     },
-
 };
 
-export const addPost = (postMessage) => {
+window.state = state;
 
-    const newPost = {
+export const addPost = () => {
+     const newPost = {
         id: 412485,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0,
     }
-
     state.profilePage.postsData.push(newPost);
     state.profilePage.newPostText = '';
-    rerenderEntireTree();
-
+    rerenderEntireTree(state);
 }
 
-export const updateNewPostText = (newText) => {
+export const updateNewPostText = newText => {
     state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
 }
 
 export const subscribe = (observer) => {
