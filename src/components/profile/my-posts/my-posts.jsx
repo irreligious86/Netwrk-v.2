@@ -13,6 +13,7 @@ const MyPosts = (props) => {
         const text = newPostElement.current.value;
         props.addPost(text);
         props.updateNewPostText('');
+        newPostElement.current.value = '';
     }
 
     const onPostChange = () => {
@@ -36,12 +37,16 @@ const MyPosts = (props) => {
             onChange={onPostChange}
         />
                 <div className={classes["input-controls"]}>
-                    <button className={classes["input-controls-btn"]} type='button' onClick={() => addPost()}>Add post
-                    </button>
-                    <button className={classes["input-controls-btn"]} type='button' onClick={() => {
-                        alert('Clean')
-                    }}>Clean
-                    </button>
+                    <button
+                        className={classes["input-controls-btn"]}
+                        type='button'
+                        onClick={() => addPost()}
+                    >Add post</button>
+                    <button
+                        className={classes["input-controls-btn"]}
+                        type='button'
+                        onClick={() => newPostElement.current.value = ''}
+                    >Clean</button>
                 </div>
             </div>
             {postsElements}
