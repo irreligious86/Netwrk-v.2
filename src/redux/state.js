@@ -49,18 +49,24 @@ const store = {
     },
     getState() {return this._state},
     _callSubscriber() {},
-    addPost() {
-        const newPost = {
-            id: 412485,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0,
-        }
-        this._state.profilePage.postsData.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    updateNewPostText(newText) {this._state.profilePage.newPostText = newText},
     subscribe(observer) {this._callSubscriber = observer},
+    dispatch(action) {
+        switch (action.type) {
+            case "ADD-POST":
+                const newPost = {
+                    id: 412485,
+                    message: this._state.profilePage.newPostText,
+                    likesCount: 0,
+                }
+                this._state.profilePage.postsData.push(newPost);
+                this._state.profilePage.newPostText = '';
+                this._callSubscriber(this._state);
+                break;
+            case "UPDATE-NEW-POST-TEXT":
+                this._state.profilePage.newPostText = action.newText;
+                break;
+        }
+    },
 };
 
 export default store;
