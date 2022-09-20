@@ -28,15 +28,30 @@ const Dialogs = (props) => {
                 </div>
                 <div className={classes['messages']}>
                     <h5 className={classes['messages-title']}>Messages</h5>
-                    {messagesElements}
                     <textarea
+                        className={classes['input-textarea']}
                         name=""
                         id=""
                         cols="45"
                         rows="2"
                         ref={newTextElement}
+                        placeholder="Type your message:"
                     ></textarea>
-                    <button onClick={ () => addText() }>Add text</button>
+                    <div className={classes["input-controls"]}>
+                        <button
+                            className={classes["input-controls-btn"]}
+                            type='button'
+                            onClick={() => addText()}
+                        >Add message</button>
+                        <button
+                            className={classes["input-controls-btn"]}
+                            type='button'
+                            onClick={() => newTextElement.current.value = ''}
+                        >Clean</button>
+                    </div>
+                    <div className="messages-array">
+                        {messagesElements}
+                    </div>
                 </div>
             </div>
         </div>
