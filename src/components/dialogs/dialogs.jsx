@@ -2,21 +2,29 @@ import React from 'react';
 import classes from './dialogs.module.css';
 import DialogItem from './dialog-item/dialog-item';
 import Message from './message/message';
+import {sendMessageBodyCreator, updateNewMessageBodyCreator} from "../../redux/state";
 
 const Dialogs = (props) => {
-
-    const dialogsElements = props.dialogsPage.dialogsData
-        .map( dialog => <DialogItem name={dialog.name} id={dialog.id} />);
-
-    const messagesElements = props.dialogsPage.messagesData
-        .map( msg => <Message id={msg.id} message={msg.message} /> );
-
-    const addText = (props) => {
-        const text = newTextElement.current.value;
-        alert(text);
-    }
+    const state = props.store.getState().dialogsPage;
 
     const newTextElement = React.createRef();
+
+    const dialogsElements = state.dialogsData
+        .map( dialog => <DialogItem name={dialog.name} id={dialog.id} />);
+
+    const messagesElements = state.messagesData
+        .map( msg => <Message message={msg.message} id={msg.id} /> );
+
+    let newMessageBody = state.newMessageBody;
+
+    const onNewMessageChange = (e) => {
+        let body = e.target.value;
+        props.dispatch(updateNewMessageBodyCreator(body));
+    }
+
+    const onSendMessageClick = () => {
+        props.dispatch(sendMessageBodyCreator());
+    }
 
     return (
         <div className={classes['dialogs']}>
@@ -28,15 +36,32 @@ const Dialogs = (props) => {
                 </div>
                 <div className={classes['messages']}>
                     <h5 className={classes['messages-title']}>Messages</h5>
-                    {messagesElements}
                     <textarea
+                        className={classes['input-textarea']}
+                        ref={newTextElement}
+                        value={newMessageBody}
+                        onChange={onNewMessageChange}
+                        placeholder="Type your message:"
                         name=""
                         id=""
                         cols="45"
                         rows="2"
-                        ref={newTextElement}
                     ></textarea>
-                    <button onClick={ () => addText() }>Add text</button>
+                    <div className={classes["input-controls"]}>
+                        <button
+                            className={classes["input-controls-btn"]}
+                            type='button'
+                            onClick={onSendMessageClick}
+                        >Add message</button>
+                        <button
+                            className={classes["input-controls-btn"]}
+                            type='button'
+                            onClick={() => newTextElement.current.value = ''}
+                        >Clean</button>
+                    </div>
+                    <div className="messages-array">
+                        {messagesElements}
+                    </div>
                 </div>
             </div>
         </div>
