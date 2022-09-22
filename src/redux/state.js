@@ -74,15 +74,14 @@ const store = {
                 break;
             case UPDATE_NEW_MESSAGE_BODY:
                 this._state.dialogsPage.newMessageBody = action.body;
-                console.log('UPDATE_NEW_MESSAGE_BODY');
-                console.log(action.body);
                 this._callSubscriber(this._state);
                 break;
             case SEND_MESSAGE:
-                this._state.dialogsPage.messagesData.push({
-                    id: 100, message: "New message",
-                });
-                console.log(this._state.dialogsPage.messagesData);
+                const newMsg = {
+                    id: 100,
+                    message: this._state.dialogsPage.newMessageBody,
+                };
+                this._state.dialogsPage.messagesData.push(newMsg);
                 this._state.dialogsPage.newMessageBody = '';
                 this._callSubscriber(this._state);
                 break;
@@ -93,7 +92,7 @@ const store = {
 export const addPostActionCreator = () => ({type: ADD_POST});
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
 export const sendMessageBodyCreator = () => ({type: SEND_MESSAGE});
-export const updateNewMessageBody = (text) => ({type: UPDATE_NEW_MESSAGE_BODY, body: text});
+export const updateNewMessageBodyCreator = (body) => ({type: UPDATE_NEW_MESSAGE_BODY, body: body});
 
 export default store;
 window.store = store;
