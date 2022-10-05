@@ -22,6 +22,7 @@ const App = (props) => {
                     element={<Profile
                         profilePage={props.state.profilePage}
                         dispatch={props.dispatch}
+                        store={props.store}
                     />}
                 />
                 <Route
