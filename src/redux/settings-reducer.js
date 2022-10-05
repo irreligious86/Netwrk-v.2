@@ -1,6 +1,9 @@
 
+let initialState = {
 
-const settingsReducer = (state, action) => {
+}
+
+const settingsReducer = (state = initialState, action) => {
 
 
     return state;
