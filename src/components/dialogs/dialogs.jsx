@@ -5,7 +5,7 @@ import Message from './message/message';
 import {sendMessageBodyCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
-    const state = props.store.getState().dialogsPage;
+    const state = props.dialogsPage;
 
     const newTextElement = React.createRef();
 
@@ -23,7 +23,7 @@ const Dialogs = (props) => {
     }
 
     const onSendMessageClick = () => {
-        props.dispatch(sendMessageBodyCreator());
+        props.sendMessage();
     }
 
     return (

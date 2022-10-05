@@ -9,6 +9,7 @@ import Settings from './components/settings/settings';
 import Music from './components/music/music';
 import News from './components/news/news';
 import Footer from './components/footer/footer';
+import DialogsContainer from "./components/dialogs/dialogs-container";
 
 const App = (props) => {
   return (
@@ -20,14 +21,14 @@ const App = (props) => {
                 <Route
                     path="/profile"
                     element={<Profile
-                        profilePage={props.state.profilePage}
+                        // profilePage={props.state.profilePage}
                         dispatch={props.dispatch}
                         store={props.store}
                     />}
                 />
                 <Route
                     path="/dialogs"
-                    element={<Dialogs
+                    element={<DialogsContainer
                         store={props.store}
                         dispatch={props.dispatch}
                     />}
