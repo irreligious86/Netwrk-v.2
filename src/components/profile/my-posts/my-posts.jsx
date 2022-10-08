@@ -37,12 +37,14 @@ const MyPosts = (props) => {
                         className={classes["input-controls-btn"]}
                         type='button'
                         onClick={() => onAddPost()}
-                    >Add post</button>
+                    >Add post
+                    </button>
                     <button
                         className={classes["input-controls-btn"]}
                         type='button'
                         onClick={() => newPostElement.current.value = ''}
-                    >Clean</button>
+                    >Clean
+                    </button>
                 </div>
             </div>
             {postsElements}
