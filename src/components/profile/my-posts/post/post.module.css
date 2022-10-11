@@ -9,23 +9,20 @@
     grid-template-columns: 80px 1fr 100px 100px;
     grid-template-rows: 20px 1fr 25px;
     grid-template-areas:
-    "author title title ."
-    "author message message message"
-    "author controls likes date"
+    "author-ava title title ."
+    "author-info message message message"
+    "author-info controls likes date"
 ;
     padding: 8px 0;
      /*border: 1px solid greenyellow;*/
 }
 
-.post-author {
-    grid-area: author;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-     /*border: 1px solid greenyellow;*/
+.post-container:hover {
+    box-shadow: inset 0 0 30px -5px rgba(173, 255, 47, 0.3);
 }
 
 .post-author-ava {
+    grid-area: author-ava;
     width: 50px;
     height: 50px;
     margin: 0 auto 8px;
@@ -35,11 +32,18 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    /*border: 1px solid greenyellow;*/
+}
+
+.post-author-info{
+    grid-area: author-info;
+    /*border: 1px solid greenyellow;*/
 }
 
 .post-author-name, .post-author-rating {
     margin: 0 auto 5px;
-    font-size: .7rem;
+    font-size: .8rem;
+    font-family: Cantarell;
      /*border: 1px solid greenyellow;*/
 }
 
@@ -47,6 +51,7 @@
     grid-area: title;
     margin: 0 0 5px;
     display: inline-block;
+    /*border: 1px solid greenyellow;*/
 }
 
 .post-message {
@@ -66,7 +71,7 @@
 .post-controls-btn {
     padding: 2px 8px;
     margin: 0 0 0 10px;
-    background-color: rgba(45, 215, 211, 0.25);
+    background-color: rgba(75, 213, 210, 0.39);
     border-radius: 3px;
     border: 1px solid transparent;
     cursor: pointer;
@@ -87,8 +92,37 @@
 }
 
 .post-date {
+    text-align: right;
     display: inline-block;
     grid-area: date;
     margin: 0 ;
-     /*border: 1px solid greenyellow;*/
+    color: rgba(119, 134, 82, 0.8);
+    /*border: 1px solid greenyellow;*/
+}
+
+@media only screen and (max-width: 687px) {
+    .post-container {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        grid-template-rows: 25px auto auto auto auto;
+        grid-template-areas:
+    "author-ava title"
+    "author-ava author-info"
+    "message message"
+    ". controls"
+    "likes date"
+    ;
+        padding: 3px 0;
+        /*border: 1px solid greenyellow;*/
+    }
+    .post-author-ava{
+        height: 90px;
+        width: 90px;
+    }
+    .post-author-name, .post-author-rating {
+        margin: 5px;
+    }
+    .post-controls {
+        margin-bottom: 6px;
+    }
 }

@@ -25,8 +25,8 @@ const MyPosts = (props) => {
             className={classes['input-textarea']}
             name=""
             id=""
-            cols="60"
-            rows="3"
+            // cols="60"
+            rows="2"
             ref={newPostElement}
             placeholder={props.newPostText}
             // value={props.newPostText}

@@ -3,7 +3,7 @@
 }
 
 .my-posts-title {
-
+    margin: 15px 0;
 }
 
 .input-new-post {
@@ -12,7 +12,7 @@
 
 .input-textarea {
     padding: 3px 8px;
-background-color: rgba(88, 98, 78, 0.3);
+    background-color: rgba(88, 98, 78, 0.3);
     color: aqua;
 }
 
@@ -34,4 +34,11 @@ background-color: rgba(88, 98, 78, 0.3);
     border: 1px solid rgba(64, 255, 0, 0.48);
     color: rgba(64, 255, 0, 0.8);
     background-color: rgba(29, 87, 85, 0.37);
+}
+
+@media only screen and (max-width: 687px) {
+    .input-textarea {
+        width: 76%;
+        margin-bottom: 8px;
+    }
 }
