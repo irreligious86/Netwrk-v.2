@@ -27,3 +27,18 @@
 .app-content {
   grid-area: content;
 }
+
+@media only screen and (max-width: 687px) {
+  .app-wrapper {
+    grid-template-areas:
+  "header header"
+  "nav nav"
+  "content content"
+  "footer footer";
+    grid-template-rows: 100px min-content min-content 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 3px;
+    padding:0;
+    width: 100vw;
+  }
+}

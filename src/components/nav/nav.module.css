@@ -34,3 +34,23 @@
 .nav-link:visited {
     /*color: none;*/
 }
+
+
+@media only screen and (max-width: 687px) {
+    .nav {
+        padding: 5px;
+    }
+    .nav-list {
+        margin: 0;
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+    .nav-list-item {
+        height: 30px;
+        /*display: inline-block;*/
+    }
+    .nav-link:hover {
+        font-size: initial;
+    }
+}
